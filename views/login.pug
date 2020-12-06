@@ -1,0 +1,9 @@
+extends layouts/base 
+
+block content
+    form(method="post",action=routes.home)
+        input(type="email",placeholder="Email",name="email")
+        input(type="password",placeholder="비밀번호",name="password")
+        input(type="submit",value="로그인")
+    include partials/socialLogin
+        
