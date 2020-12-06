@@ -1,0 +1,11 @@
+extends layouts/base
+
+block content
+    .form-container
+        form(action=`/users/editProfile`, method="post", enctype="multipart/form-data")
+            .fileUpload
+                label(form="avatar") Avatar
+                input(type="file",id="avatar",name="avatar",accept="image/*")
+            input(type="text", placeholder="Name", name="name")
+            input(type="email",placeholder="Email",name="email")
+            input(type="submit",value="submit")
