@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middlewares";
 
 
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(localsMiddleware);
 app.use(routes.users, userRouter);
+app.use(routes.videos, videoRouter);
 app.use(routes.home, globalRouter);
 
 

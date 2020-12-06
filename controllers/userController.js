@@ -10,3 +10,11 @@ export const join = (req, res) => {
 export const login = (req, res) => {
     res.render("login");
 }
+
+export const profile = (req, res) => {
+    res.render("profile");
+}
+
+export const userDetail = (req, res) => {
+    res.render("userDetail");
+}
