@@ -1,0 +1,8 @@
+extends layouts/base
+
+block content
+    form(action=routes.editVideo(), method="post")
+        input(type="text",placeholder="제목",name="videoName")
+        textarea(name="description",placeholder="설명")
+        input(type="submit",value="변경")
+            

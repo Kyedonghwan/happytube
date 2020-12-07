@@ -16,14 +16,18 @@ Node JS를 활용한 동영상 게시판 사이트
 - [x] Home
 - [x] join
 - [x] Login
-- [ ] Search
-- [x] User Detail
+- [x] Search
+- [x] User Detail (Profile)
 - [x] Edit Profile
-- [ ] Change Password
-- [ ] Upload
-- [ ] Video Detail
-- [ ] Edit Video
+- [x] Change Password
+- [x] Upload
+- [x] Video Detail
+- [x] Edit Video
+- [ ] MongoDB connection
+- [ ] github login
+- [ ] kakao login
 - [ ] Comment
+- [ ] like
 
 ### 참여 인원:
 

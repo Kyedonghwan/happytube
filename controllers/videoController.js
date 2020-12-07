@@ -1,22 +1,30 @@
 
 
 export const videoHome = (req, res) => {
-    res.render("home");
+  res.render("home");
 }
 
 export const uploadVideo = (req, res) => {
-    res.render("upload");
+  res.render("upload");
 }
 
 
 export const search = (req, res) => {
-    const { query: search } = req;
+  const { query: search } = req;
 
 
 
-    res.render("search", search);
+  res.render("search", search);
 }
 
+export const videoDetail = (req, res) => {
+  res.render("videoDetail");
+  console.log(req.params);
+}
+
+export const editVideo = (req, res) => {
+  res.render("editVideo");
+}
 /*
 export const search = async (req, res) => {
     const {
