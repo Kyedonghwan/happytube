@@ -1,7 +1,7 @@
 extends layouts/base 
 
 block content
-    form(method="post",action=routes.home)
+    form(method="post",action=`/users${routes.login}`)
         input(type="email",placeholder="Email",name="email")
         input(type="password",placeholder="비밀번호",name="password")
         input(type="submit",value="로그인")

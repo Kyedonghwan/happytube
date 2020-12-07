@@ -14,11 +14,11 @@ Node JS를 활용한 동영상 게시판 사이트
 ## 기능 구성 
 
 - [x] Home
-- [ ] join
-- [ ] Login
+- [x] join
+- [x] Login
 - [ ] Search
-- [ ] User Detail
-- [ ] Edit Profile
+- [x] User Detail
+- [x] Edit Profile
 - [ ] Change Password
 - [ ] Upload
 - [ ] Video Detail

@@ -18,3 +18,7 @@ export const profile = (req, res) => {
 export const userDetail = (req, res) => {
     res.render("userDetail");
 }
+
+export const changePassword = (req, res) => {
+    res.render("changePassword");
+}

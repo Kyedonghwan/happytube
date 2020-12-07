@@ -4,6 +4,6 @@ import { uploadVideo } from "../controllers/videoController";
 
 const router = express.Router();
 
-router.use(routes.upload, uploadVideo);
+router.get(routes.upload, uploadVideo);
 
 export default router;
