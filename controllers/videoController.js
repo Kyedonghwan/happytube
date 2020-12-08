@@ -1,4 +1,5 @@
 import Video from "../models/Video";
+import routes from "../routes";
 
 export const videoHome = async (req, res) => {
   try {
@@ -11,10 +12,20 @@ export const videoHome = async (req, res) => {
   }
 }
 
-export const uploadVideo = (req, res) => {
+export const getUploadVideo = (req, res) => {
   res.render("upload");
 }
 
+export const postUploadVideo = async (req, res) => {
+  const { body: { videoName, description }, file: { path } } = req;
+
+  const newVideo = await Video.create({
+    title: videoName,
+    description: description,
+    fileUrl: path
+  });
+  res.redirect(routes.videoDetail(newVideo._id));
+}
 
 export const search = (req, res) => {
   const { query: search } = req;

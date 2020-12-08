@@ -2,10 +2,9 @@ extends layouts/base
 
 block content
     .uploadVideo 
-        form(method="post",enctype="multiplart/form-data",action=`/videos${routes.upload}`)
-            .uploadVideo-avatar
-                label(for="v") Upload
-                input(type="file",id="v",name="videoFile",required=true,accept="video/*")
+        form(method="post",enctype="multipart/form-data",action=`/videos${routes.upload}`)
+            label(for="v") Upload
+            input(type="file",id="v",name="videoFile",required=true,accept="video/*")
             input(type="text",placeholder="제목",name="videoName")
             textarea(name="description",placeholder="설명")
             input(type="submit",value="업로드하기")
