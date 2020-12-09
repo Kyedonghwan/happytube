@@ -1,9 +1,9 @@
 extends layouts/base.pug
 
 block content
+    h1 안녕하세요 #{user.name} 씨?
     .search
         span 검색
         form(methode="get",action=`${routes.search}`)
             input(type="text",placeholder="검색어를 입력하세요 ..",name="search")
             input(type="submit",value="검색")
-        

@@ -1,5 +1,6 @@
 import passport from "passport";
 import User from "../models/User";
+import routes from "../routes";
 
 export const editProfile = (req, res) => {
     res.render("editProfile");
@@ -20,11 +21,11 @@ export const postJoin = async (req, res, next) => {
         res.redirect(`/users${routes.join}`);
     } else {
         try {
-            const user = await User.create({
+            const user = await User({
                 name, email
             }
             );
-            User.register(user, password);
+            await User.register(user, password);
             next();
         } catch (error) {
             console.log(error);
@@ -38,8 +39,8 @@ export const getLogin = (req, res) => {
 }
 
 export const postLogin = passport.authenticate("local", {
-    failureRedirect: `/users${routes.login}`,
-    successRedirect: routes.home
+    successRedirect: routes.home,
+    failureRedirect: `/users${routes.login}`
 });
 
 export const profile = (req, res) => {

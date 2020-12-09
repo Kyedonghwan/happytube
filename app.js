@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import path from "path";
+import session from "express-session";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import routes from "./routes";
@@ -22,6 +23,13 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(
+    session({
+        secret: "sdfdsfdsf",
+        resave: true,
+        saveUninitialized: false,
+    })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(localsMiddleware);
