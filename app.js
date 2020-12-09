@@ -11,9 +11,13 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middlewares";
 import passport from "passport";
+import mongoose from "mongoose";
+import mongoStore, { MongoStore } from "connect-mongo";
 import "./passport";
 
 const app = express();
+
+const cokieStore = mongoStore(session);
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug"); // view engine이 보여질 확장자가 pug임을 명시.
@@ -28,6 +32,7 @@ app.use(
         secret: "sdfdsfdsf",
         resave: true,
         saveUninitialized: false,
+        store: new cokieStore({ mongooseConnection: mongoose.connect })
     })
 );
 app.use(passport.initialize());
