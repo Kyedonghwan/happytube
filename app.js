@@ -12,7 +12,7 @@ import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middlewares";
 import passport from "passport";
 import mongoose from "mongoose";
-import mongoStore, { MongoStore } from "connect-mongo";
+import mongoStore from "connect-mongo";
 import "./passport";
 
 const app = express();
@@ -32,7 +32,7 @@ app.use(
         secret: "sdfdsfdsf",
         resave: true,
         saveUninitialized: false,
-        store: new cokieStore({ mongooseConnection: mongoose.connect })
+        store: new cokieStore({ mongooseConnection: mongoose.connection })
     })
 );
 app.use(passport.initialize());
