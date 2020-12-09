@@ -29,9 +29,6 @@ export const postUploadVideo = async (req, res) => {
 
 export const search = (req, res) => {
   const { query: search } = req;
-
-
-
   res.render("search", search);
 }
 

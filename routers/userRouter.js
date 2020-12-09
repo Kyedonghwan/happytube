@@ -1,12 +1,15 @@
 import express from "express";
 import routes from "../routes";
-import { editProfile, join, login, userDetail, changePassword } from "../controllers/userController";
+import { editProfile, getJoin, postJoin, getLogin, postLogin, userDetail, changePassword } from "../controllers/userController";
 
 const router = express.Router();
 
 router.get(routes.editProfile, editProfile);
-router.get(routes.login, login);
-router.get(routes.join, join);
+router.get(routes.login, getLogin);
+router.post(routes.login, postLogin);
+
+router.get(routes.join, getJoin);
+router.post(routes.join, postJoin, postLogin);
 router.get(routes.changePassword, changePassword);
 router.get(routes.userDetail(), userDetail);
 
