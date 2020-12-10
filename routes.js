@@ -27,10 +27,10 @@ const UPLOAD = "/upload";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
-// facebook
+// google
 
-const FB = "/auth/facebook";
-const FB_CALLBACK = "/auth/facebook/callback";
+const GOOGLE = "/auth/google";
+const GOOGLE_CALLBACK = "/auth/google/callback";
 
 // API
 
@@ -83,8 +83,8 @@ const routes = {
     github: GITHUB,
     githubCallback: GITHUB_CALLBACK,
     me: ME,
-    facebook: FB,
-    facebookCallback: FB_CALLBACK,
+    google: GOOGLE,
+    googleCallback: GOOGLE_CALLBACK,
     api: API,
     registerView: REGISTER_VIEW,
     addComment: ADD_COMMENT,

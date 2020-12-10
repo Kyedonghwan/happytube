@@ -13,11 +13,14 @@ import { localsMiddleware } from "./middlewares";
 import passport from "passport";
 import mongoose from "mongoose";
 import mongoStore from "connect-mongo";
+import dotenv from "dotenv";
+
 import "./passport";
 
+dotenv.config();
 const app = express();
 
-const cokieStore = mongoStore(session);
+const cookieStore = mongoStore(session);
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug"); // view engine이 보여질 확장자가 pug임을 명시.
@@ -29,10 +32,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(
     session({
-        secret: "sdfdsfdsf",
+        secret: process.env.COOKIE_SECRET,
         resave: true,
         saveUninitialized: false,
-        store: new cokieStore({ mongooseConnection: mongoose.connection })
+        store: new cookieStore({ mongooseConnection: mongoose.connection })
     })
 );
 app.use(passport.initialize());

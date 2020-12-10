@@ -54,3 +54,26 @@ export const userDetail = (req, res) => {
 export const changePassword = (req, res) => {
     res.render("changePassword");
 }
+
+export const googleCallback = async (accessToken, refreshToken, profile, cb) => {
+    console.log(profile);
+    const { _json: { name, picture, email }, id } = profile;
+    try {
+        const user = await User.findOne({ email })
+        if (user) {
+            return cb(null, user);
+        }
+        else {
+            const newUser = await User.create({
+                email, name, avatarUrl: picture, googleId: id
+            });
+            return cb(null, newUser);
+        }
+    } catch (error) {
+        return cb(error);
+    }
+}
+
+export const googleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
+
+export const postGoogleLogin = passport.authenticate('google', { failureRedirect: `users${routes.login}` });

@@ -24,7 +24,7 @@ Node JS를 활용한 동영상 게시판 사이트
 - [x] Video Detail
 - [x] Edit Video
 - [x] MongoDB connection
-- [ ] Passport (Authentication)
+- [x] Passport (Authentication)
 - [ ] github login
 - [ ] kakao login
 - [ ] Comment
