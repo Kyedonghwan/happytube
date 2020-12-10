@@ -56,7 +56,6 @@ export const changePassword = (req, res) => {
 }
 
 export const googleCallback = async (accessToken, refreshToken, profile, cb) => {
-    console.log(profile);
     const { _json: { name, picture, email }, id } = profile;
     try {
         const user = await User.findOne({ email })
@@ -77,3 +76,8 @@ export const googleCallback = async (accessToken, refreshToken, profile, cb) => 
 export const googleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
 
 export const postGoogleLogin = passport.authenticate('google', { failureRedirect: `users${routes.login}` });
+
+export const logout = (req, res) => {
+    req.logout();
+    res.redirect(routes.home);
+}

@@ -25,8 +25,10 @@ Node JS를 활용한 동영상 게시판 사이트
 - [x] Edit Video
 - [x] MongoDB connection
 - [x] Passport (Authentication)
+- [x] google Login
 - [ ] github login
 - [ ] kakao login
+- [ ] UI
 - [ ] Comment
 - [ ] like
 
