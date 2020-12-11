@@ -85,9 +85,33 @@ export const googleCallback = async (accessToken, refreshToken, profile, cb) => 
     }
 }
 
+export const naverCallback = async (accessToken, refreshToken, profile, cb) => {
+    console.log(profile);
+    const { _json: { nickname, profile_image, email }, id } = profile;
+    try {
+        const user = await User.findOne({ email })
+        if (user) {
+            return cb(null, user);
+        }
+        else {
+            const newUser = await User.create({
+                email, name: nickname, avatarUrl: profile_image, naverId: id
+            });
+            return cb(null, newUser);
+        }
+    } catch (error) {
+
+        return cb(error);
+    }
+}
+
 export const googleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
 
 export const postGoogleLogin = passport.authenticate('google', { failureRedirect: `users${routes.login}` });
+
+export const naverLogin = passport.authenticate('naver', null);
+
+export const postNaverLogin = passport.authenticate('naver', { failureRedirect: `users${routes.login}` });
 
 export const logout = (req, res) => {
     req.logout();

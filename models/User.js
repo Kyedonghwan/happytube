@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
         ref: "Video"
     }],
     avatarUrl: String,
-    githubId: Number,
+    naverId: Number,
     googleId: Number
 
 });

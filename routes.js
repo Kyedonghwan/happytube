@@ -1,14 +1,14 @@
 // Global
 
 const HOME = "/";
-const JOIN = "/join";
-const LOGIN = "/login";
-const LOGOUT = "/logout";
 const SEARCH = "/search";
 
 // Users
 
 const USERS = "/users";
+const JOIN = "/join";
+const LOGIN = "/login";
+const LOGOUT = "/logout";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
@@ -22,10 +22,10 @@ const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 const UPLOAD = "/upload";
 
-// github
+// naver
 
-const GITHUB = "/auth/github";
-const GITHUB_CALLBACK = "/auth/github/callback";
+const NAVER = "/auth/naver";
+const NAVER_CALLBACK = "/auth/naver/callback";
 
 // google
 
@@ -80,8 +80,8 @@ const routes = {
     },
 
     upload: UPLOAD,
-    github: GITHUB,
-    githubCallback: GITHUB_CALLBACK,
+    naver: NAVER,
+    naverCallback: NAVER_CALLBACK,
     me: ME,
     google: GOOGLE,
     googleCallback: GOOGLE_CALLBACK,

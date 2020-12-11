@@ -54,14 +54,13 @@ export const editVideo = (req, res) => {
 
 export const deleteVideo = async (req, res) => {
   const {
-    user,
     params: { id }
   } = req;
   try {
-    console.log(req.user);
+
     await Video.findByIdAndRemove(id);
 
-    const user = await User.findById(user.id);
+    const user = await User.findById(req.user.id);
     user.videos.pull(id);
     user.save();
 
