@@ -2,8 +2,20 @@ import passport from "passport";
 import User from "../models/User";
 import routes from "../routes";
 
-export const editProfile = (req, res) => {
+export const getEditProfile = (req, res) => {
     res.render("editProfile");
+}
+
+export const postEditProfile = async (req, res) => {
+    const { user: { id }, body: { name, email }, file: { path } } = req;
+
+    try {
+        await User.findByIdAndUpdate(id, { name, email, avatarUrl: path });
+    } catch (error) {
+        console.log(error);
+        res.redirect(`/users${routes.editProfile}`);
+    }
+    res.redirect(routes.home);
 }
 
 export const getJoin = (req, res) => {
