@@ -13,13 +13,14 @@ export const videoHome = async (req, res) => {
   }
 }
 
+
 export const getUploadVideo = (req, res) => {
   res.render("upload");
 }
 
 export const postUploadVideo = async (req, res) => {
   const { user: { id }, body: { videoName, description }, file: { path } } = req;
-
+  console.log(req.file);
   try {
     const newVideo = await Video.create({
       title: videoName,
@@ -38,9 +39,15 @@ export const postUploadVideo = async (req, res) => {
   }
 }
 
-export const search = (req, res) => {
-  const { query: search } = req;
-  res.render("search", search);
+export const search = async (req, res) => {
+  const { query: { search } } = req;
+  try {
+    const videos = await Video.find({ title: { $regex: search, $options: "i" } });
+    res.render("search", { search, videos });
+  } catch (error) {
+    console.log(error);
+    res.render("search", { search, videos: [] });
+  }
 }
 
 export const videoDetail = (req, res) => {

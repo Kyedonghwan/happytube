@@ -7,15 +7,15 @@ export const getEditProfile = (req, res) => {
 }
 
 export const postEditProfile = async (req, res) => {
-    const { user: { id }, body: { name, email }, file: { path } } = req;
+    const { user: { id }, body: { name }, file: { path } } = req;
 
     try {
-        await User.findByIdAndUpdate(id, { name, email, avatarUrl: path });
+        await User.findByIdAndUpdate(id, { name, avatarUrl: path });
+        res.redirect(routes.userDetail(id));
     } catch (error) {
         console.log(error);
         res.redirect(`/users${routes.editProfile}`);
     }
-    res.redirect(routes.home);
 }
 
 export const getJoin = (req, res) => {

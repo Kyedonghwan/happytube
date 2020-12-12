@@ -25,7 +25,7 @@ const cookieStore = mongoStore(session);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug"); // view engine이 보여질 확장자가 pug임을 명시.
 app.set("views", path.join(__dirname, "views"));
-app.use("/static", express.static(path.join(__dirname, "static")));
+app.use("/uploads", express.static("uploads/"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

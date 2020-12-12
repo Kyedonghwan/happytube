@@ -1,5 +1,15 @@
 extends layouts/base
 
 block content
-    h1 awdawdad
-            
+    .uesrProfile
+        .userImage
+            image(src=`http://localhost:4000/${user.avatarUrl}`)
+        .userName
+            h1=user.name
+        .user
+            h2
+    .userProfile-options
+        .userProfile-options__editProfile
+            a(href=`users${routes.editProfile}`) 프로필 수정하기
+        .userProfile-options__changePassword
+            a(href=`users${routes.changePassword}`) 비밀번호 변경

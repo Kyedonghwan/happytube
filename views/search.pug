@@ -1,8 +1,18 @@
 extends layouts/base 
+include mixins/videoBlock
 
 block content
     .search-result
         | #{search} 검색결과 : 
-        span 
+    .search-video
+        each item in videos
+            +videoBlock({
+                title:item.title,
+                description:item.description,
+                fileUrl:item.fileUrl,
+                views:item.views,
+                videoId:item._id
+            })
+    
 
 

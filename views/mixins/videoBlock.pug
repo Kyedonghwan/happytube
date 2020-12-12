@@ -1,0 +1,9 @@
+mixin videoBlock(video={})
+    .videoBlock
+        a(href=routes.videoDetail(video.videoId))
+            video(src=video.fileUrl controls=false)
+            h1=video.title 
+            if video.views>=2
+                h4 #{video.views} views
+            else
+                h4 #{video.views} view
