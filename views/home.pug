@@ -1,4 +1,5 @@
 extends layouts/base.pug
+include mixins/videoBlock
 
 block content
     if user
@@ -8,3 +9,12 @@ block content
         form(methode="get",action=`${routes.search}`)
             input(type="text",placeholder="검색어를 입력하세요 ..",name="search")
             input(type="submit",value="검색")
+    .videolist All videos
+        each item in videos
+            +videoBlock({
+                title:item.title,
+                description:item.description,
+                fileUrl:item.fileUrl,
+                views:item.views,
+                videoId:item._id
+            })

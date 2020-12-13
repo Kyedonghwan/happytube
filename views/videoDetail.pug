@@ -1,5 +1,20 @@
 extends layouts/base 
 
 block content
-    h1
-    | this is videoDetail
+    video(src=`http://localhost:4000/${video.fileUrl}`)
+    .video-infos
+        h1=video.title
+        p=video.description
+        a(href=routes.userDetail(video.creator.id))=video.creator.name 
+
+        .video-infos__views
+            h3 조회 수
+                if video.views >=2
+                    h4 #{video.views} Views 
+                else
+                    h4 #{video.views} View
+    .video-comments
+        if video.comments.length>=2
+            h3 #{video.comments.length} Comments
+        else
+            h3 #{video.comments.length} Comment

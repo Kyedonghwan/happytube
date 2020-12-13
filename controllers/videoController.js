@@ -25,7 +25,8 @@ export const postUploadVideo = async (req, res) => {
     const newVideo = await Video.create({
       title: videoName,
       description: description,
-      fileUrl: path
+      fileUrl: path,
+      creator: id
     });
 
     const user = await User.findById(id);
@@ -50,9 +51,17 @@ export const search = async (req, res) => {
   }
 }
 
-export const videoDetail = (req, res) => {
-  res.render("videoDetail");
-  console.log(req.params);
+export const videoDetail = async (req, res) => {
+  const { params: { id } } = req;
+  try {
+    const video = await Video.findById(id).populate('creator').populate('comments');
+    console.log(video);
+    res.render("videoDetail", { video, pageTitle: video.title });
+
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 }
 
 export const editVideo = (req, res) => {
