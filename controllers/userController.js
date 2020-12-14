@@ -63,8 +63,28 @@ export const userDetail = (req, res) => {
     res.render("userDetail");
 }
 
-export const changePassword = (req, res) => {
+export const getChangePassword = (req, res) => {
     res.render("changePassword");
+}
+
+export const postChangePassword = async (req, res) => {
+    const { body: { currentPassword, newPassword, newPassword2 }, user: { id } } = req;
+    if (newPassword != newPassword2) {
+        console.log("비밀번호 불일치.");
+
+        res.redirect(`users${routes.changePassword}`);
+    } else {
+        try {
+            const user = await User.findById(id);
+            await user.changePassword(currentPassword, newPassword);
+            res.redirect(routes.home);
+
+        } catch (error) {
+            console.log(error);
+            res.redirect(routes.home);
+        }
+    }
+
 }
 
 export const googleCallback = async (accessToken, refreshToken, profile, cb) => {
