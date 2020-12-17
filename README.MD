@@ -27,11 +27,12 @@ Node JS를 활용한 동영상 게시판 사이트
 - [x] Passport (Authentication)
 - [x] google Login
 - [x] Naver Login
-- [ ] kakao Login
+
 - [ ] UI
 - [ ] Comment
 - [ ] like
 
+- [ ] delete Video
 ### 참여 인원:
 
 1
