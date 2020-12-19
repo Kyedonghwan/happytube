@@ -33,6 +33,23 @@ Node JS를 활용한 동영상 게시판 사이트
 - [ ] like
 
 - [ ] delete Video
+
+## 프로젝트 기여하는 방법 ( UI 및 코드개선 )
+
+1. git clone https://github.com/Kyedonghwan/happytube
+
+2. git checkout -b branchname
+
+3. git push origin branchname
+
+4. pull request 요청 
+
+5. kdh643737@gmail.com 으로 소통.피드백
+
+## 리뷰
+
+이번 프로젝트를 하면서 협업의 중요성을 더욱 깨달았다. 단순히 공개프로젝트로 열어만 놓으면 나에게도 request 요청이 올 줄 알았다. 하지만 착각이었다. 프로젝트를 남에게 최대한 개방하며, 공용의 언어로 알기 쉽게 만들어야 하며, 프로젝트 기여방법 기술 및 환영 의지를 적극적으로 적었어야 했다. 다음엔 공개프로젝트로 최대한 많은 사람들을 끌어들여 피드백을 받고, 제한시간 내에 더 좋은 산출물을 위해 문서화하는 연습을 많이 해야겠다.
+
 ### 참여 인원:
 
 1
