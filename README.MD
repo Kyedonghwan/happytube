@@ -11,6 +11,11 @@ Node JS를 활용한 동영상 게시판 사이트
 - 구글,네이버 및 카카오 로그인 OPEN API를 활용한 로그인기능 구현예정
 
 
+## 실행 방법
+
+- npm install
+- npm start
+
 ## 기능 구성 
 
 - [x] Home
