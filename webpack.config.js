@@ -44,7 +44,7 @@ const config = {
         path: OUTPUT_DIR,
         filename: "[name].js",
     },
-    plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
+    plugins: [new MiniCssExtractPlugin({ filename: "styles.css" })],
 };
 
 module.exports = config;
